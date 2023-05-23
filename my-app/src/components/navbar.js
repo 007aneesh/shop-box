@@ -24,7 +24,7 @@ const Navbar = () => {
   // }
   return (
     <>
-      <header className=" lg:pl-20 lg:pr-20 bg-[#f7bf4f]">
+      <header className="lg:pl-20 fixed w-full lg:pr-20 bg-[#f7bf4f]">
         <div className="flex justify-between items-center w-[65%]">
           <div className="mr-5">
             <Link to="/">
