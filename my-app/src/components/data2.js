@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BsEyeFill } from "react-icons/bs";
+import {  BsEyeFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
-const Data1 = ({ addToCart }) => {
+const Data2 = ({ addToCart }) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://fakestoreapi.com/products/category/men's%20clothing?sort=desc"
+          "https://fakestoreapi.com/products/category/women's%20clothing?sort=desc"
         );
         setData(response.data);
         console.log(response.data);
@@ -19,15 +19,14 @@ const Data1 = ({ addToCart }) => {
 
     fetchData();
   }, []);
-
   return (
-    <div id="mens" className="mb-0">
+    <div id="women" className="mb-20">
       {data && (
         <div className="pt-8 flex flex-col flex-wrap lg:flex-row">
           {data.map((item, index) => (
             <div
               key={index}
-              className="mx-10 pt-4 flex flex-col mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
+              className=" flex flex-col mx-10 pt-4  mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
             >
               <img
                 className="h-48 w-full object-contain object-center"
@@ -72,4 +71,4 @@ const Data1 = ({ addToCart }) => {
   );
 };
 
-export default Data1;
+export default Data2;

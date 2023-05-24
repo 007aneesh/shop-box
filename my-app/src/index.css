@@ -11,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: url("./assets/2.webp");
   background-repeat: no-repeat;
+  background-size: cover;
 }
 html{
   scroll-behavior: smooth;
