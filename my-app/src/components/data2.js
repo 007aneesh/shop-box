@@ -11,7 +11,7 @@ const Data2 = ({ addToCart }) => {
           "https://fakestoreapi.com/products/category/women's%20clothing?sort=desc"
         );
         setData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -20,7 +20,7 @@ const Data2 = ({ addToCart }) => {
     fetchData();
   }, []);
   return (
-    <div id="women" className="mb-20 flex flex-col justify-center items-center">
+    <div id="women" className="mb-10 md:mb-20 flex flex-col justify-center items-center">
       {data && (
         <div className="pt-8 flex flex-col flex-wrap justify-center lg:flex-row">
           {data.map((item, index) => (

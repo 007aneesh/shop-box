@@ -6,8 +6,7 @@ import { BiTrashAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
 import "./navbar.css";
 const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
-  console.log("ci");
-  console.log(cartItems);
+  // console.log(cartItems);
   const navRef = useRef();
   const cartRef = useRef();
   const [total, setTotal] = useState(0);
@@ -23,7 +22,7 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
     navRef.current.classList.toggle("responsive_nav");
   };
   const showcrt = () => {
-    console.log("toggled");
+    // console.log("toggled");
     ctRef.current.classList.toggle("responsive_cart");
     cartRef.current.classList.toggle("responsive_cart");
   };
@@ -57,10 +56,14 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
             onClick={showcrt}
           >
             <FaShoppingCart size={23} />
-            <span class="position-absolute top-[20px] ml-7  translate-middle badge rounded-pill bg-white text-black">
+            {
+              cartItems.length ? (<span class="position-absolute top-[20px] ml-7  translate-middle badge rounded-pill bg-white text-black">
               {cartItems.length}
               <span class="visually-hidden">unread messages</span>
-            </span>
+            </span>) : ""
+
+            }
+            
           </button>
 
           <button id="user" className="hidden md:flex mr-2 hover:text-white">

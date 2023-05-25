@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import Data1 from "../components/data1";
 import Data2 from "../components/data2";
+import Data3 from "../components/data3";
 import Footer from "../components/footer";
+import b1 from "../assets/b-1.png";
 const Home = ({ navbar: Navbar }) => {
   const [cartItems, setCartItems] = useState([]);
   const addToCart = (item) => {
@@ -54,6 +56,10 @@ const Home = ({ navbar: Navbar }) => {
       </div>
       <Data1 addToCart={addToCart} />
       <Data2 addToCart={addToCart} />
+      <div className="w-full mb-14 md:mb-28">
+        <img className="w-full" src={b1} alt="b-1" />
+      </div>
+      <Data3 addToCart={addToCart} />
       <Footer />
     </div>
   );

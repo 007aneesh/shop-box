@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillGithub, AiOutlineLinkedin } from "react-icons/ai";
 const Footer = () => {
   return (
-    <div className="w-full h-16 flex justify-center items-center  bg-black">
+    <div className="w-full bottom-0 h-16 flex justify-center items-center  bg-black">
       <h1 className="flex flex-row text-white text-xl">Copyright @Aneesh</h1>
       <a href="https://github.com/007aneesh">
         <AiFillGithub className="mx-2 text-white" size={24} />
