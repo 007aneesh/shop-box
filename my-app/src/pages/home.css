@@ -1,9 +1,26 @@
 .bg-1{
     top:0;
-    background-image: url("../assets/b-2.png");
+    background-image: url("../assets/newb4.png");
 }
 @media only screen and (max-width: 768px) {
     .bg-1{
         background-image: url("../assets/mb-2.png");
     }
+}
+/* navbar.css */
+
+.main-section {
+  transition: transform 0.5s ease;
+}
+
+.animate-main {
+  transform: translateY(calc(100vh - 4rem));
+}
+
+.main-content {
+  transition: opacity 0.5s ease;
+}
+
+.animate-content {
+  opacity: 0;
 }

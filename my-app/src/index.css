@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("./assets/2.webp");
+  background-color: #DFE2DB;
   background-repeat: no-repeat;
   background-size: cover;
 }

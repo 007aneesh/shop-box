@@ -3,7 +3,9 @@ const Accounts = ({ navbar: Navbar }) => {
   return (
     <div>
       <Navbar />
-      <h3>Acc</h3>
+      <div className="h-screen flex justify-center items-center">
+        <h1 className="text-4xl">Coming Soon</h1>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {  BsEyeFill } from "react-icons/bs";
+import { BsEyeFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 const Data2 = ({ addToCart }) => {
   const [data, setData] = useState(null);
@@ -20,13 +20,13 @@ const Data2 = ({ addToCart }) => {
     fetchData();
   }, []);
   return (
-    <div id="women" className="mb-20">
+    <div id="women" className="mb-20 flex flex-col justify-center items-center">
       {data && (
-        <div className="pt-8 flex flex-col flex-wrap lg:flex-row">
+        <div className="pt-8 flex flex-col flex-wrap justify-center lg:flex-row">
           {data.map((item, index) => (
             <div
               key={index}
-              className=" flex flex-col mx-10 pt-4  mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
+              className="mx-4 my-4 flex flex-col pt-4  mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
             >
               <img
                 className="h-48 w-full object-contain object-center"
@@ -35,12 +35,16 @@ const Data2 = ({ addToCart }) => {
               />
               <div className="flex flex-col right-0 p-4 absolute group-hover:right-5 transition-all duration-100 items-center justify-center gap-y-2 top-0">
                 <button
+                  id="add_p_to_cart"
                   onClick={() => addToCart(item)}
                   className="flex justify-center items-center text-red w-8 h-8 bg-red-500"
                 >
                   <AiOutlinePlus className="text-xl text-white rounded-none outline-none border-none" />
                 </button>
-                <button className="flex justify-center items-center bg-white w-8 h-8">
+                <button
+                  id="view"
+                  className="flex justify-center items-center bg-white w-8 h-8"
+                >
                   <BsEyeFill className="text-xl" />
                 </button>
               </div>
@@ -56,7 +60,7 @@ const Data2 = ({ addToCart }) => {
                     ${item.price}
                   </p>
                   <p className="text-base  font-medium text-gray-500 line-through ">
-                    ${item.price + 30}
+                    ${(item.price + 30).toFixed(2)}
                   </p>
                   <p className="ml-auto text-base font-medium text-green-500">
                     20% off
