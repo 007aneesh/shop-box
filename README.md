@@ -10,6 +10,7 @@ A react js shopping website which fetches the prodeuct data from the Fake Store 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Fake Store API](https://fakestoreapi.com/)
 - [Axios](https://www.npmjs.com/package/axios)
+- [React Table - MUI](https://mui.com/material-ui/react-table/)
 
 ## Instructions
 
