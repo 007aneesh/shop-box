@@ -1,6 +1,6 @@
 # Shop-Box
 
-A react js shopping website which fetches the prodeuct data from the Fake Store API.
+A react js shopping website which fetches the product data from the Fake Store API.
 
 ---
 
