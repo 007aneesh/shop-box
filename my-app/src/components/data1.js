@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BsEyeFill } from "react-icons/bs";
+// import { BsEyeFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Data1 = ({ addToCart }) => {
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -29,32 +30,37 @@ const Data1 = ({ addToCart }) => {
         <h1 className="font-semibold text-4xl">Trending now</h1>
       </div>
       {data && (
-        <div className="pt-8 flex flex-col flex-wrap justify-center lg:flex-row">
+        <div  className="pt-8 flex flex-col flex-wrap justify-center lg:flex-row">
           {data.map((item, index) => (
+            
             <div
               key={index}
-              className="mx-4 my-4 pt-4 flex flex-col mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
+              className="mx-4 my-4 pt-4 flex cursor-pointer flex-col mt-11 w-72 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg"
             >
+              <Link key={index} to={`/products/${item.id}`}>
               <img
                 className="h-48 w-full object-contain object-center"
                 src={item.image}
                 alt="Product"
-              />
-              <div className="flex flex-col right-0 p-4 absolute group-hover:right-5 transition-all duration-100 items-center justify-center gap-y-2 top-0">
+              /></Link>
+              <div className="flex z-10 flex-col right-0 p-4 absolute group-hover:right-5 transition-all duration-100 items-center justify-center gap-y-2 top-0">
                 <button
                   id="add_p_to_cart"
-                  onClick={() => addToCart(item)}
+                  onClick={(e) => {
+                    addToCart(item);
+                  }}
                   className="flex justify-center items-center text-red w-8 h-8 bg-red-500"
                 >
                   <AiOutlinePlus className="text-xl text-white rounded-none outline-none border-none" />
                 </button>
-                <button
+                {/* <button
                   id="view"
                   className="flex justify-center items-center bg-white w-8 h-8"
                 >
                   <BsEyeFill className="text-xl" />
-                </button>
+                </button> */}
               </div>
+              <Link key={index} to={`/products/${item.id}`}>
               <div className="p-4">
                 <h2 className="mb-2 text-lg font-medium text-gray-900">
                   {item.title}
@@ -74,6 +80,7 @@ const Data1 = ({ addToCart }) => {
                   </p>
                 </div>
               </div>
+              </Link>
             </div>
           ))}
         </div>

@@ -22,7 +22,6 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
     navRef.current.classList.toggle("responsive_nav");
   };
   const showcrt = () => {
-    // console.log("toggled");
     ctRef.current.classList.toggle("responsive_cart");
     cartRef.current.classList.toggle("responsive_cart");
   };
@@ -43,7 +42,11 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
               <Link to="/accounts" className="acc hidden">
                 Account
               </Link>
-              <button id="close" className="nav-btn nav-close" onClick={showNav}>
+              <button
+                id="close"
+                className="nav-btn nav-close"
+                onClick={showNav}
+              >
                 <AiOutlineClose />
               </button>
             </nav>
@@ -56,14 +59,14 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
             onClick={showcrt}
           >
             <FaShoppingCart size={23} />
-            {
-              cartItems.length ? (<span class="position-absolute top-[20px] ml-7  translate-middle badge rounded-pill bg-white text-black">
-              {cartItems.length}
-              <span class="visually-hidden">unread messages</span>
-            </span>) : ""
-
-            }
-            
+            {cartItems.length ? (
+              <span class="position-absolute top-[20px] ml-7  translate-middle badge rounded-pill bg-white text-black">
+                {cartItems.length}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            ) : (
+              ""
+            )}
           </button>
 
           <button id="user" className="hidden md:flex mr-2 hover:text-white">
@@ -78,7 +81,7 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
 
         <div
           ref={ctRef}
-          className="ani z-1000 right-0 top-[60px]  absolute w-full overflow-y-scroll md:w-1/4 py-9 px-8 h-screen bg-white "
+          className="ani shadow-2xl z-1000 right-0 top-[60px]  absolute w-full overflow-y-scroll md:w-1/3 py-9 px-8 h-screen bg-white "
         >
           <button id="right_arrow" onClick={showcrt}>
             <BsArrowRight size={25} />
@@ -123,7 +126,10 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
                     onClick={() => removeFromCart(index)}
                     className=" w-1/3 flex flex-row bg-red-500 p-2 justify-center items-center cursor-pointer"
                   >
-                    <button id="trash" className="flex w-full h-full text-base md:text-sm justify-around items-center text-white">
+                    <button
+                      id="trash"
+                      className="flex w-full h-full text-base md:text-sm justify-around items-center text-white"
+                    >
                       <BiTrashAlt size={20} /> Remove
                     </button>
                   </div>
@@ -131,7 +137,7 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
                     <div className="flex flex-row justify-evenly items-center w-full">
                       <div className="flex items-center">
                         <button
-                        id="minus"
+                          id="minus"
                           onClick={() =>
                             handleQuantityChange(index, item.quantity - 1)
                           }
@@ -144,7 +150,7 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
                       </div>
                       <div className="flex items-center">
                         <button
-                        id="plus"
+                          id="plus"
                           onClick={() =>
                             handleQuantityChange(index, item.quantity + 1)
                           }
@@ -159,9 +165,20 @@ const Navbar = ({ cartItems = [], removeFromCart, handleQuantityChange }) => {
             ))}
             {total ? (
               <div className="flex justify-center items-center w-full p-4">
-                <button id="checkout" className="w-full bg-[#f7bf4f] hover:text-white shadow-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-xl md:text-base font-semibold md:px-2 py-3 md:py-2 md:w-[80%]">
-                  Proceed to checkout
-                </button>
+                <Link
+                  to={{
+                    pathname: "/checkout",
+                    state: { cartItems }, 
+                  }}
+                  id="checkout"
+                >
+                  <button
+                    id="checkout"
+                    className="w-full bg-[#f7bf4f] hover:text-white shadow-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-xl md:text-base font-semibold md:px-2 py-3 md:py-2 p-4"
+                  >
+                    Proceed to checkout
+                  </button>
+                </Link>
               </div>
             ) : (
               <div className="flex justify-center mt-16 text-xl">
